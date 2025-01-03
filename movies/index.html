@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cardsmovies</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 16px 0;
+        max-width: 400px;
+    }
+
+    .card img {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    .card h3 {
+        margin: 8px 0;
+    }
+
+    .card p {
+        margin: 4px 0;
+    }
+
+    .card a {
+        display: inline-block;
+        margin-top: 8px;
+        color: #007BFF;
+        text-decoration: none;
+    }
+
+    .card a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+
+<body>
+    <h1>Listado de Películas que veo en 2025</h1>
+    <div id="movies-container"></div>
+
+    <script src="api.js"></script>
+    <script>
+        async function displayMovies() {
+            const movies = await getItems();
+            const container = document.getElementById('movies-container');
+            movies.forEach(movie => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+              <img src="${movie.url_imagen}" alt="${movie.nombre}">
+              <h3>${movie.nombre}</h3>
+              <p><strong>Director:</strong> ${movie.director}</p>
+              <p><strong>Año:</strong> ${movie.año}</p>
+              <p><strong>País:</strong> ${movie.pais.join(', ')}</p>
+              <p><strong>Géneros:</strong> ${movie.genero.join(', ')}</p>
+              <p><strong>Calificación:</strong></p>
+              <ul>
+                <li><strong>IMDb:</strong> ${movie.calificacion.imdb}</li>
+                <li><strong>Filmaffinity:</strong> ${movie.calificacion.filmaffinity}</li>
+                <li><strong>Daniela:</strong> ${movie.calificacion.daniela}</li>
+              </ul>
+              <p><strong>Comentario:</strong> ${movie.comentario}</p>
+              <a href="${movie.url_trailer}" target="_blank">Ver tráiler</a>
+            `;
+                container.appendChild(card);
+            });
+        }
+        displayMovies();
+    </script>
+</body>
+
+</html>
