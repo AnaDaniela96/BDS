@@ -1,0 +1,23 @@
+[
+    {
+        "nombre": "Nosferatu",
+        "director": "Robert Eggers",
+        "año": 2024,
+        "pais": [
+            "República Checa",
+            "Estados Unidos"
+        ],
+        "genero": [
+            "Terror gótico",
+            "Vampiros"
+        ],
+        "calificacion": {
+            "imdb": "7.2/10",
+            "filmaffinity": "6.8/10",
+            "daniela": "4"
+        },
+        "comentario": "Una reimaginación oscura y atmosférica del clásico de terror, con actuaciones inquietantes y una estética visual impresionante.",
+        "url_imagen": "https://www.ejemplo.com/nosferatu_poster.jpg",
+        "url_trailer": "https://www.ejemplo.com/nosferatu_trailer.mp4"
+    }
+]
